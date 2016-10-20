@@ -1,0 +1,58 @@
+﻿@using Productivity.Models
+@*
+
+*@
+@{
+}
+
+@inject Personen personen
+<table>
+    <tr>
+        <th>KW</th>
+        @for (var i = 0; i < personen.Count; i++)
+        {
+            <td>personen.Get(i).Name</td>
+            <td>Produktivität Umbau</td>
+            <td>Wirtschaftlichkeit Umbau</td>
+            <td>Faktor Zugang</td>
+            <td>Faktor System</td>
+            <td>Faktor Montageart</td>
+            <td>Faktor Stockwerk</td>
+            <td></td>
+            <td>Produktivität Umbau</td>
+            <td>Wirtschaftlichkeit Umbau</td>
+            <td>Faktor Zugang</td>
+            <td>Faktor System</td>
+            <td>Faktor Montageart</td>
+            <td>Faktor Stockwerk</td>
+        }
+    </tr>
+    @for (var kw = 0; kw < 52; kw++)
+    {
+        <tr>
+            <th>KW @kw</th>
+
+            @for (var i = 0; i < personen.Count; i++)
+            {
+                Employee person = personen.Get(i);
+                Umbau umbau = person.Umbau.First(x => x.KW == kw);
+                Neubau neubau = person.Neubau.First(x => x.KW == kw);
+
+                <td></td>
+                <td>@umbau.Produktivitaet</td>
+                <td>@umbau.Wirtschaftlichkeit</td>
+                <td>@umbau.FaktorZugang</td>
+                <td>@umbau.FaktorSystem</td>
+                <td>@umbau.FaktorMontageArt</td>
+                <td>@umbau.FaktorStockwerk</td>
+                <td></td>
+                <td>@neubau.Produktivitaet</td>
+                <td>@neubau.Wirtschaftlichkeit</td>
+                <td>@neubau.FaktorZugang</td>
+                <td>@neubau.FaktorSystem</td>
+                <td>@neubau.FaktorMontageArt</td>
+                <td>@neubau.FaktorStockwerk</td>
+            }
+        </tr>
+    }
+</table>
