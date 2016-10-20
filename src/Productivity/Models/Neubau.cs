@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Productivity.Models
 {
@@ -6,6 +7,7 @@ namespace Productivity.Models
     {
         public int Id { get; set; }
 
+        [Range(0,53)]
         public int KW { get; set; }
 
         public double Produktivitaet { get; set; }

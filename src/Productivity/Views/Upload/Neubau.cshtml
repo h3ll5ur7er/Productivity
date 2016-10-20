@@ -3,3 +3,9 @@
 *@
 @{
 }
+@inject Personen personen
+@model Neubau
+<form actionr="Upload/Employee" method="POST">
+    <input asp-for="@Model.KW" />
+    <input asp-for="@Model.Employee" />
+</form>
